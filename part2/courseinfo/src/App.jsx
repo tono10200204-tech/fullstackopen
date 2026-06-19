@@ -7,10 +7,7 @@ const Part = ({ part }) => {
 }
 
 const Content = ({ parts }) => {
-  let total = 0
-  parts.forEach(part =>{
-    total += part.exercises
-  })
+  const total = parts.reduce((sum, part) => sum + part.exercises, 0)
 
   return (
     <div>
@@ -42,8 +39,8 @@ const App = () => {
       { name: 'Redux', exercises: 11, id: 4 }
     ]
   }
-  
-  return <Course course={course} /> 
+
+  return <Course course={course} />
 }
 
 export default App
